@@ -10,6 +10,7 @@ type Config struct {
 	User         string `env:"DB_USER"`
 	Password     string `env:"DB_PASSWORD"`
 	DatabaseName string `env:"DB_NAME"`
+	DBPort       string `env:"DB_PORT" end-default:"5432"`
 }
 
 func MustLoad() *Config {
