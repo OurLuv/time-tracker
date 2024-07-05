@@ -13,6 +13,11 @@ import (
 	"github.com/phsym/console-slog"
 )
 
+// @title           time-tracker API
+// @version         1.0.
+
+// @host      localhost:8080
+// @BasePath  /
 func main() {
 
 	// getting config data

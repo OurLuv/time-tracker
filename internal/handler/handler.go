@@ -22,7 +22,17 @@ type Handler struct {
 func (h *Handler) InitRoutes() *mux.Router {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/user", h.CreateUser).Methods("POST")
+	// user
+	r.HandleFunc("/users", h.CreateUser).Methods("POST")
+	r.HandleFunc("/users", h.GetUsersOrderBy).Methods("GET")
+	r.HandleFunc("/users/{id}", h.DeleteUser).Methods("DELETE")
+	r.HandleFunc("/users/{id}", h.UpdateUser).Methods("PUT")
+	r.HandleFunc("/info", h.UserInfo).Methods("GET")
+
+	// task
+	r.HandleFunc("/tasks", h.StartTask).Methods("POST")
+	r.HandleFunc("/tasks", h.FinishTask).Methods("PUT") // finishing task
+	r.HandleFunc("/tasks", h.GetTasks).Methods("GET")
 
 	return r
 }
